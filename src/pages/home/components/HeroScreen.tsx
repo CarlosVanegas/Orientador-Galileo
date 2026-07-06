@@ -356,16 +356,16 @@ export default function HeroScreen({ onStart }: HeroScreenProps) {
                   background: 'linear-gradient(to right, transparent, #7EC8E3, #C4705C, #1B3A6B, transparent)',
                 }}
               />
-              <p className="text-xs sm:text-sm italic leading-relaxed" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                <i className="ri-double-quotes-l mr-1" style={{ color: 'rgba(196,112,92,0.4)' }} />
+              <p className="text-xs sm:text-sm italic leading-relaxed font-medium" style={{ color: 'rgba(255,255,255,0.82)' }}>
+                <i className="ri-double-quotes-l mr-1" style={{ color: '#C4705C' }} />
                 Educar es cambiar visiones y transformar vidas
-                <i className="ri-double-quotes-r ml-1" style={{ color: 'rgba(196,112,92,0.4)' }} />
+                <i className="ri-double-quotes-r ml-1" style={{ color: '#C4705C' }} />
               </p>
-              <p className="mt-1.5 text-[10px] sm:text-[11px]" style={{ color: 'rgba(255,255,255,0.15)' }}>
+              <p className="mt-1.5 text-[10px] sm:text-[11px] font-semibold" style={{ color: 'rgba(255,255,255,0.55)' }}>
                 — Dr. Eduardo Suger Cofiño, PhD · Fundador y Presidente
               </p>
-              <div className="mt-3 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}>
-                <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.18)' }}>
+              <div className="mt-3 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+                <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.45)' }}>
                   Universidad Líder en Tecnología · Centroamérica
                 </p>
               </div>

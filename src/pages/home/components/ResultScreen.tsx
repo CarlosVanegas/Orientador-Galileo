@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useInView } from 'motion/react';
 import { useApp } from '@/context/AppContext';
 import { useTypewriter } from '@/hooks/useTypewriter';
 import ConfettiEffect from './ConfettiEffect';
-import { getCareerDetail, type CareerDetail } from '@/mocks/careerDetails';
+import { getCareerDetail, type CareerDetail, type CareerRoadmap } from '@/mocks/careerDetails';
 
 interface ResultScreenProps {
   onContinue: () => void;
@@ -234,6 +234,143 @@ function FloatingUrgencyBadge() {
           <span className="text-xs sm:text-sm font-semibold" style={{ color: `${T}DD` }}>{items[current]}</span>
         </motion.div>
       </AnimatePresence>
+    </div>
+  );
+}
+
+function DemandBadge({ level }: { level: CareerRoadmap['demandLevel'] }) {
+  const cfg = {
+    'Media':    { color: '#FBBF24', icon: 'ri-bar-chart-line',    label: 'Demanda Media' },
+    'Alta':     { color: '#34D399', icon: 'ri-bar-chart-2-line',  label: 'Demanda Alta' },
+    'Muy Alta': { color: '#F87171', icon: 'ri-bar-chart-box-line', label: 'Demanda Muy Alta' },
+  }[level];
+  return (
+    <motion.div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1"
+      style={{ background: `${cfg.color}18`, border: `1px solid ${cfg.color}35` }}
+      animate={{ boxShadow: [`0 0 0px ${cfg.color}00`, `0 0 10px ${cfg.color}40`, `0 0 0px ${cfg.color}00`] }}
+      transition={{ duration: 2.5, repeat: Infinity }}>
+      <motion.i className={`${cfg.icon} text-xs`} style={{ color: cfg.color }}
+        animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity }} />
+      <span className="text-[10px] sm:text-xs font-bold" style={{ color: cfg.color }}>{cfg.label}</span>
+    </motion.div>
+  );
+}
+
+function RoadmapSection({ roadmap }: { roadmap: CareerRoadmap }) {
+  return (
+    <div className="relative rounded-2xl p-4 sm:p-5 overflow-hidden"
+      style={{ background: 'rgba(10,22,46,0.68)', backdropFilter: 'blur(14px)', border: `1px solid ${T}20` }}>
+      <div className="absolute top-0 left-0 right-0 h-px"
+        style={{ background: `linear-gradient(90deg, transparent, ${T}55, transparent)` }} />
+
+      {/* Header */}
+      <div className="flex items-start gap-3 mb-4">
+        <motion.div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+          style={{ background: `${T}18`, border: `1px solid ${T}28` }}
+          animate={{ scale: [1, 1.08, 1] }} transition={{ duration: 3, repeat: Infinity }}>
+          <i className="ri-map-2-line text-sm sm:text-base" style={{ color: T }} />
+        </motion.div>
+        <div>
+          <h3 className="text-white font-heading font-bold text-base sm:text-lg">Hoja de Ruta — Entiende tu Carrera</h3>
+          <p className="text-[10px] sm:text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            Mercado, habilidades, herramientas y áreas de trabajo
+          </p>
+        </div>
+      </div>
+
+      {/* Demand + Overview */}
+      <div className="mb-4 p-3 sm:p-4 rounded-xl" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
+        <div className="flex items-center gap-2 mb-2 flex-wrap">
+          <DemandBadge level={roadmap.demandLevel} />
+          <span className="text-[11px] sm:text-xs" style={{ color: 'rgba(255,255,255,0.55)' }}>{roadmap.demandNote}</span>
+        </div>
+        <p className="text-xs sm:text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>{roadmap.overview}</p>
+      </div>
+
+      {/* Skills + Technologies grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+        {/* Skills */}
+        <div>
+          <p className="text-[10px] font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5" style={{ color: F }}>
+            <i className="ri-brain-line" /> Habilidades clave
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {roadmap.skills.map((skill, i) => (
+              <motion.span key={i}
+                initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.04 + i * 0.04, duration: 0.28 }}
+                className="text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full cursor-default"
+                style={{ background: `${F}12`, color: `${F}DD`, border: `1px solid ${F}20` }}>
+                {skill}
+              </motion.span>
+            ))}
+          </div>
+        </div>
+        {/* Technologies */}
+        <div>
+          <p className="text-[10px] font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5" style={{ color: T }}>
+            <i className="ri-tools-line" /> Herramientas & Tecnologías
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {roadmap.technologies.map((tech, i) => (
+              <motion.span key={i}
+                initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.04 + i * 0.04, duration: 0.28 }}
+                className="text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full cursor-default"
+                style={{ background: `${T}12`, color: `${T}DD`, border: `1px solid ${T}20` }}>
+                {tech}
+              </motion.span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Certifications */}
+      <div className="mb-4">
+        <p className="text-[10px] font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5" style={{ color: '#A78BFA' }}>
+          <i className="ri-medal-line" /> Certificaciones que elevan tu valor
+        </p>
+        <div className="flex flex-wrap gap-1.5">
+          {roadmap.certifications.map((cert, i) => (
+            <motion.span key={i}
+              initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.06 + i * 0.05 }}
+              className="text-[10px] sm:text-[11px] px-2.5 py-1 rounded-full cursor-default flex items-center gap-1"
+              style={{ background: 'rgba(167,139,250,0.1)', color: 'rgba(167,139,250,0.9)', border: '1px solid rgba(167,139,250,0.2)' }}>
+              <i className="ri-award-line text-[9px]" /> {cert}
+            </motion.span>
+          ))}
+        </div>
+      </div>
+
+      {/* Work Areas */}
+      <div>
+        <p className="text-[10px] font-bold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: 'rgba(255,255,255,0.55)' }}>
+          <i className="ri-briefcase-3-line" /> Áreas donde puedes trabajar
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {roadmap.areas.map((area, i) => (
+            <motion.div key={i}
+              initial={{ opacity: 0, x: -10, filter: 'blur(4px)' }}
+              animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+              transition={{ delay: 0.06 + i * 0.07, duration: 0.35 }}
+              whileHover={{ scale: 1.02, y: -1 }}
+              className="flex items-start gap-2.5 p-3 rounded-xl cursor-default transition-all duration-200"
+              style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.background = `${F}08`; (e.currentTarget as HTMLDivElement).style.borderColor = `${F}25`; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgba(255,255,255,0.03)'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(255,255,255,0.06)'; }}>
+              <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
+                style={{ background: `${F}14`, border: `1px solid ${F}22` }}>
+                <i className={`${area.icon} text-xs`} style={{ color: F }} />
+              </div>
+              <div className="min-w-0">
+                <p className="text-white font-semibold text-[11px] sm:text-xs leading-tight mb-0.5">{area.name}</p>
+                <p className="text-[10px] sm:text-[11px] leading-snug" style={{ color: 'rgba(255,255,255,0.52)' }}>{area.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -524,6 +661,11 @@ export default function ResultScreen({ onContinue }: ResultScreenProps) {
               ))}
             </div>
           </div>
+        </AnimatedSection>
+
+        {/* Career Roadmap */}
+        <AnimatedSection>
+          <RoadmapSection roadmap={detail.roadmap} />
         </AnimatedSection>
 
         {/* Companies */}

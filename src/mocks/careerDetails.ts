@@ -1,3 +1,19 @@
+export interface RoadmapArea {
+  name: string;
+  icon: string;
+  desc: string;
+}
+
+export interface CareerRoadmap {
+  overview: string;
+  demandLevel: 'Media' | 'Alta' | 'Muy Alta';
+  demandNote: string;
+  skills: string[];
+  technologies: string[];
+  certifications: string[];
+  areas: RoadmapArea[];
+}
+
 export interface CareerDetail {
   id: string;
   shortName: string;
@@ -13,6 +29,7 @@ export interface CareerDetail {
   galileoEdge: string;
   funFact: string;
   careerPath: string[];
+  roadmap: CareerRoadmap;
 }
 
 export const CAREER_DETAILS: Record<string, CareerDetail> = {
@@ -29,12 +46,12 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Depurar bugs, optimizar rendimiento y lanzar productos al mercado',
     ],
     specializations: [
-      { title: 'Inteligencia Artificial & Machine Learning', desc: 'Enseñar a las máquinas a pensar. Desde chatbots hasta diagnóstico médico automatizado.' },
-      { title: 'Desarrollo Full-Stack', desc: 'Domina frontend y backend. Crea plataformas completas desde cero hasta producción.' },
-      { title: 'Ciberseguridad', desc: 'Protégela infraestructura digital de bancos, gobiernos y empresas contra hackers.' },
-      { title: 'Cloud & DevOps', desc: 'Gestiona infraestructura en AWS, Azure y Google Cloud. Escala productos a millones de usuarios.' },
-      { title: 'Data Science & Big Data', desc: 'Extrae insights de millones de datos para decisiones empresariales inteligentes.' },
-      { title: 'Videojuegos & Realidad Virtual', desc: 'Diseña mundos virtuales, juegos AAA y experiencias inmersivas.' },
+      { title: 'Inteligencia Artificial & Machine Learning', desc: 'Enseñas a las máquinas a aprender, predecir y decidir. Aplicaciones: diagnóstico médico, trading automático, chatbots, visión por computadora. La especialización más demandada del siglo XXI.' },
+      { title: 'Desarrollo Full-Stack', desc: 'Construyes aplicaciones completas: desde la interfaz que el usuario ve hasta la base de datos y el servidor. Frontend (React, Vue) + Backend (Node, Python, Java) + Bases de datos.' },
+      { title: 'Ciberseguridad', desc: 'Proteges la infraestructura digital de bancos, hospitales, gobiernos. Buscas vulnerabilidades antes que los hackers. Ethical hacking, pentesting, forense digital.' },
+      { title: 'Cloud & DevOps', desc: 'Diseñas y operas infraestructura que escala a millones de usuarios. AWS, Azure, Google Cloud. Automatización con Docker, Kubernetes, CI/CD pipelines.' },
+      { title: 'Data Science & Big Data', desc: 'Extraes oro de millones de datos. Machine learning, visualización, predicciones de negocio. Empresas pagan muy bien por quien convierte datos en decisiones.' },
+      { title: 'Videojuegos & Realidad Virtual', desc: 'Unity, Unreal Engine, OpenGL. Diseñas mundos interactivos, juegos AAA, simuladores de entrenamiento, experiencias de realidad aumentada y virtual.' },
     ],
     companiesGT: [
       'Tigo Guatemala', 'Claro Guatemala', 'Banco Industrial', 'Banguat',
@@ -65,6 +82,22 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Tercer año: IA, desarrollo web/apps y proyectos reales',
       'Cuarto año: Práctica profesional en empresas y tesis',
     ],
+    roadmap: {
+      overview: 'La Ingeniería en Sistemas es la carrera que construye el mundo digital. Aprendes a crear software, sistemas inteligentes y soluciones tecnológicas que impactan industrias enteras. Es la carrera con mayor proyección internacional: puedes trabajar remotamente para empresas en EE.UU., Europa o Asia desde Guatemala.',
+      demandLevel: 'Muy Alta',
+      demandNote: 'Guatemala necesita +15,000 ingenieros de software en los próximos 5 años. La oferta es menor a la demanda, lo que garantiza empleo inmediato.',
+      skills: ['Programación (Python, Java, JS)', 'Estructuras de datos y algoritmos', 'Bases de datos SQL/NoSQL', 'Desarrollo web y móvil', 'Machine Learning básico', 'Cloud computing (AWS/Azure)', 'Control de versiones (Git)', 'Metodologías ágiles (Scrum)'],
+      technologies: ['Python', 'JavaScript / TypeScript', 'React / Node.js', 'Docker & Kubernetes', 'AWS / Google Cloud', 'PostgreSQL / MongoDB', 'TensorFlow / PyTorch', 'Git & GitHub'],
+      certifications: ['AWS Certified Developer', 'Google Cloud Professional', 'Meta Frontend Developer', 'Microsoft Azure Fundamentals', 'Certified Scrum Master (CSM)'],
+      areas: [
+        { name: 'Desarrollo de Software', icon: 'ri-code-s-slash-line', desc: 'Creas apps, plataformas y sistemas para empresas de todos los sectores. La ruta más amplia y con mayor demanda.' },
+        { name: 'Inteligencia Artificial', icon: 'ri-brain-line', desc: 'Modelos de ML, chatbots, visión por computadora y automatización inteligente. El área de mayor crecimiento global.' },
+        { name: 'Ciberseguridad', icon: 'ri-shield-keyhole-line', desc: 'Proteges empresas de ciberataques. Alta demanda en bancos, gobierno y empresas críticas. Salarios muy competitivos.' },
+        { name: 'Cloud & DevOps', icon: 'ri-cloud-line', desc: 'Infraestructura que escala. Las empresas modernas necesitan sistemas 24/7 sin fallos. Certificaciones valen oro.' },
+        { name: 'Data Science', icon: 'ri-bar-chart-box-line', desc: 'Transforma datos en decisiones de negocio. Predicciones, dashboards y análisis estadístico para empresas.' },
+        { name: 'Videojuegos / XR', icon: 'ri-gamepad-line', desc: 'Juegos, simuladores, realidad virtual y aumentada. Industria que supera en ingresos al cine y la música juntos.' },
+      ],
+    },
   },
 
   mecatronica: {
@@ -80,12 +113,12 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Prototipar piezas en impresoras 3D y cortadoras láser',
     ],
     specializations: [
-      { title: 'Robótica Avanzada', desc: 'Construye humanoides, drones autónomos y robots quirúrgicos. El futuro de la medicina y la industria.' },
-      { title: 'Automatización Industrial', desc: 'Transforma fábricas tradicionales en plantas 4.0 con sensores, IA y control total.' },
-      { title: 'Diseño Mecánico CAD/CAM', desc: 'Modela en 3D piezas que luego fabricas con CNC, impresión 3D o inyección.' },
-      { title: 'Vehículos Autónomos & Drones', desc: 'Elabora drones agrícolas, de entrega y vehículos que se manejan solos.' },
-      { title: 'Control de Sistemas', desc: 'Sistemas de control para aviones, submarinos, satélites y plantas industriales.' },
-      { title: 'Biomecánica & Prótesis', desc: 'Diseña prótesis biónicas y exoesqueletos que devuelven movilidad a las personas.' },
+      { title: 'Robótica Avanzada', desc: 'Construyes humanoides, drones autónomos y robots quirúrgicos. Programación con ROS (Robot Operating System), visión artificial y control inteligente. El campo que Boston Dynamics y Tesla buscan activamente.' },
+      { title: 'Automatización Industrial', desc: 'Transformas fábricas tradicionales en plantas 4.0. PLC (Siemens, Allen-Bradley), HMI, SCADA y sensores IoT. Cada planta manufacturera en Guatemala y el mundo necesita esto.' },
+      { title: 'Diseño Mecánico CAD/CAM', desc: 'Modelas piezas en 3D con SolidWorks, AutoCAD o Fusion 360. Luego las fabricas con CNC, impresión 3D o inyección de plástico. Del diseño digital al objeto físico.' },
+      { title: 'Vehículos Autónomos & Drones', desc: 'Drones agrícolas para fumigación de precisión, entregas aéreas y vigilancia. Vehículos terrestres autónomos. Guatemala ya usa drones en agricultura: eres parte de esa revolución.' },
+      { title: 'Control de Sistemas', desc: 'Sistemas de control PID, control adaptativo y control óptimo para aviones, submarinos, satélites y plantas industriales. Base matemática sólida aplicada a máquinas reales.' },
+      { title: 'Biomecánica & Prótesis', desc: 'Diseñas prótesis biónicas controladas por señales musculares, exoesqueletos para rehabilitación y dispositivos médicos robóticos. Donde la ingeniería salva y mejora vidas.' },
     ],
     companiesGT: [
       'Cervecería Centroamericana', 'Tecnoquímicas (TQ)', 'Corporación Multi Inversiones (CMI)',
@@ -117,6 +150,22 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Tercer año: Control avanzado, IA y proyectos industriales',
       'Cuarto año: Práctica en plantas reales y tesis de automatización',
     ],
+    roadmap: {
+      overview: 'Mecatrónica fusiona mecánica, electrónica, computación y control en una sola disciplina. Es la carrera de la Industria 4.0: robots, automatización, drones e IA aplicada a máquinas. Guatemala tiene plantas manufactureras de clase mundial que necesitan estos profesionales urgentemente.',
+      demandLevel: 'Alta',
+      demandNote: 'La automatización industrial crece 18% anual en Centroamérica. Plantas de CMI, Cementos Progreso y maquiladoras buscan constantemente mecatrónicos.',
+      skills: ['Programación de PLC (Siemens, Allen-Bradley)', 'Control automático (PID, adaptativo)', 'Diseño CAD 3D (SolidWorks, Fusion)', 'Robótica (ROS, visión artificial)', 'Electrónica de potencia', 'Manufactura avanzada (CNC, impresión 3D)', 'MATLAB y Simulink', 'IoT industrial (IIoT)'],
+      technologies: ['SolidWorks / AutoCAD', 'MATLAB / Simulink', 'Siemens TIA Portal (PLC)', 'ROS (Robot Operating System)', 'Arduino / Raspberry Pi', 'LabVIEW', 'Fusion 360', 'Python para automatización'],
+      certifications: ['Siemens Mechatronics Certified', 'FANUC Robotics Operator', 'Rockwell Automation Certified', 'SolidWorks CSWA/CSWP', 'IPC-7711 (Soldadura electrónica)'],
+      areas: [
+        { name: 'Automatización Industrial', icon: 'ri-settings-3-line', desc: 'Conviertes fábricas tradicionales en plantas inteligentes. La mayor fuente de empleo mecatrónico en Guatemala.' },
+        { name: 'Robótica & IA', icon: 'ri-robot-line', desc: 'Robots colaborativos (cobots), brazos industriales y sistemas autónomos. El futuro de la manufactura.' },
+        { name: 'Drones & Vehículos', icon: 'ri-flight-takeoff-line', desc: 'Diseño y programación de UAVs para agricultura, logística, seguridad y topografía.' },
+        { name: 'Bioingeniería', icon: 'ri-heart-pulse-line', desc: 'Prótesis, exoesqueletos y dispositivos médicos robóticos. Una de las áreas de mayor impacto social.' },
+        { name: 'I+D Industrial', icon: 'ri-microscope-line', desc: 'Investigación y desarrollo de nuevas máquinas y procesos. Trabajo en centros de investigación y universidades.' },
+        { name: 'Consultoría 4.0', icon: 'ri-presentation-line', desc: 'Asesoras empresas en su transformación digital-industrial. Alta demanda con excelentes honorarios.' },
+      ],
+    },
   },
 
   electronica: {
@@ -132,12 +181,12 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Trabajar con señales digitales, analógicas y comunicaciones',
     ],
     specializations: [
-      { title: 'IoT & Sistemas Conectados', desc: 'Conecta refrigeradores, autos, relojes y ciudades a internet. El mundo de los 50 mil millones de dispositivos.' },
-      { title: 'Electrónica de Potencia', desc: 'Diseña sistemas eléctricos para autos eléctricos, paneles solares y plantas industriales.' },
-      { title: 'Comunicaciones & Telecom', desc: 'Desarrolla redes 5G, satélites y sistemas de comunicación de alta frecuencia.' },
-      { title: 'Diseño de Chips (VLSI)', desc: 'Crea microchips para smartphones, computadoras y dispositivos médicos.' },
-      { title: 'Sistemas Embebidos', desc: 'Programa microcontroladores que controlan desde un auto hasta un avión.' },
-      { title: 'Electrónica Médica', desc: 'Diseña equipos de diagnóstico, prótesis electrónicas y sistemas de monitoreo de salud.' },
+      { title: 'IoT & Sistemas Conectados', desc: 'Conectas refrigeradores, autos, smartwatches y ciudades a internet. El ecosistema IoT ya supera los 50 mil millones de dispositivos. Sensores, protocolos MQTT/LoRa y plataformas cloud.' },
+      { title: 'Electrónica de Potencia', desc: 'Diseñas los sistemas eléctricos de autos eléctricos, paneles solares e inversores industriales. La transición energética global necesita expertos en potencia. Altos salarios garantizados.' },
+      { title: 'Comunicaciones & Telecom', desc: 'Redes 5G, satélites LEO y sistemas de microondas. Diseño de antenas, modulación de señales y procesamiento digital. Cisco, Ericsson y Nokia buscan este perfil.' },
+      { title: 'Diseño de Chips (VLSI)', desc: 'Diseñas microchips usando VHDL/Verilog. Intel, NVIDIA y Qualcomm valen billones porque dominan el diseño de chips. La escasez global de semiconductores hace esto crítico.' },
+      { title: 'Sistemas Embebidos', desc: 'Programas el firmware de todo: desde un microondas hasta un avión. C/C++ embebido, RTOS (FreeRTOS) y drivers de hardware. Hay más sistemas embebidos que computadoras en el mundo.' },
+      { title: 'Electrónica Médica', desc: 'Equipos de diagnóstico (MRI, ultrasonido), prótesis electrónicas y monitores de signos vitales. Industria regulada con altos estándares y salarios muy competitivos.' },
     ],
     companiesGT: [
       'Tigo Guatemala', 'Claro Guatemala', 'Telefónica',
@@ -169,6 +218,22 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Tercer año: IoT, sistemas embebidos y electrónica de potencia',
       'Cuarto año: Práctica profesional y tesis con prototipo real',
     ],
+    roadmap: {
+      overview: 'La Ingeniería en Electrónica diseña el hardware que hace posible el mundo digital. Desde el chip de tu celular hasta el sistema de control de un avión, todo pasa por un ingeniero electrónico. Con la revolución de IoT, vehículos eléctricos y semiconductores, la demanda nunca ha sido más alta.',
+      demandLevel: 'Alta',
+      demandNote: 'La escasez global de semiconductores y la expansión IoT generan una demanda sostenida por décadas. Empresas como Intel y NVIDIA están expandiendo operaciones en Latinoamérica.',
+      skills: ['Diseño de circuitos analógicos y digitales', 'PCB design (Altium, KiCad)', 'Programación embebida (C/C++, RTOS)', 'Procesamiento de señales (DSP)', 'Electrónica de potencia', 'Protocolos de comunicación (I2C, SPI, UART)', 'VHDL/Verilog (diseño de chips)', 'Instrumentación y medición'],
+      technologies: ['Altium Designer / KiCad', 'MATLAB / Simulink', 'Proteus / LTspice', 'Arduino / ESP32 / STM32', 'LabVIEW', 'Oscilloscopes & Analyzers', 'FreeRTOS', 'Python para instrumentación'],
+      certifications: ['IPC-A-610 (Calidad electrónica)', 'Certified Electronics Technician (CET)', 'ARM Cortex-M Certified', 'NI LabVIEW Developer', 'CompTIA A+ (Hardware)'],
+      areas: [
+        { name: 'IoT & Conectividad', icon: 'ri-wifi-line', desc: 'Diseñas los dispositivos que conectan el mundo físico a internet. Hogar inteligente, industria 4.0 y ciudades inteligentes.' },
+        { name: 'Semiconductores', icon: 'ri-cpu-line', desc: 'Diseño de chips para smartphones, computadoras y autos. Intel, NVIDIA, Qualcomm. La industria más valiosa del planeta.' },
+        { name: 'Electrónica Médica', icon: 'ri-heart-pulse-line', desc: 'Equipos hospitalarios, implantes y monitores. Alta regulación = alta remuneración y estabilidad laboral.' },
+        { name: 'Sistemas Embebidos', icon: 'ri-code-box-line', desc: 'El software del hardware. Cada dispositivo electrónico tiene firmware. La demanda es enorme y constante.' },
+        { name: 'Energía & Autos Eléctricos', icon: 'ri-flashlight-line', desc: 'La revolución EV necesita ingenieros en electrónica de potencia. Tesla, Rivian y BYD buscan este perfil urgentemente.' },
+        { name: 'Defensa & Aeroespacial', icon: 'ri-rocket-line', desc: 'Sistemas de guía, radares, comunicaciones militares y electrónica satelital. Los proyectos más exigentes del mundo.' },
+      ],
+    },
   },
 
   telecomunicaciones: {
@@ -184,12 +249,12 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Implementar cloud privada y híbrida para empresas',
     ],
     specializations: [
-      { title: 'Redes 5G & Wireless', desc: 'Diseña la infraestructura de conectividad del futuro. Redes más rápidas, con menos latencia.' },
-      { title: 'Ciberseguridad de Redes', desc: 'Defiende infraestructura crítica de gobiernos, bancos y empresas contra ataques cibernéticos.' },
-      { title: 'Cloud Networking', desc: 'Arquitectura de redes para AWS, Azure y Google Cloud. Networking a escala planetaria.' },
-      { title: 'Satélites & Comunicaciones Espaciales', desc: 'Trabaja en Starlink, OneWeb o proyectos de comunicación satelital.' },
-      { title: 'VoIP & Comunicaciones Unificadas', desc: 'Sistemas de comunicación empresarial: videollamadas, telefonía IP, colaboración digital.' },
-      { title: 'Redes Ópticas & Submarinas', desc: 'Cableado submarino que conecta continentes. La internet física del planeta.' },
+      { title: 'Redes 5G & Wireless', desc: 'Diseñas la infraestructura de conectividad del futuro: antenas, celdas, espectro radioeléctrico y backhaul. 5G no es solo velocidad, es la base de ciudades inteligentes, cirugías remotas y autos autónomos.' },
+      { title: 'Ciberseguridad de Redes', desc: 'Firewalls, IDS/IPS, VPNs y SOC (Security Operations Center). Proteges bancos, gobiernos y empresas de ataques cibernéticos. El 60% de las empresas sufrirá un ciberataque este año. Tú eres la defensa.' },
+      { title: 'Cloud Networking', desc: 'Arquitecturas de red para AWS, Azure y Google Cloud. SDN (Software Defined Networking), NFV y multicloud. Las empresas migran a la nube y necesitan ingenieros que diseñen esas redes.' },
+      { title: 'Satélites & Comunicaciones Espaciales', desc: 'Starlink, OneWeb y Amazon Kuiper están lanzando miles de satélites. Diseñas sistemas de comunicación satelital para internet en zonas rurales, navegación y telemetría espacial.' },
+      { title: 'VoIP & Comunicaciones Unificadas', desc: 'Sistemas de telefonía IP, videconferencia empresarial y colaboración digital. Cisco Webex, Microsoft Teams, Zoom: todas corren sobre infraestructura que tú diseñas y mantienes.' },
+      { title: 'Redes Ópticas & Submarinas', desc: 'El cable submarino que conecta a Guatemala con el mundo pasa por las manos de ingenieros en telecomunicaciones. DWDM, fibra óptica de larga distancia y redes de transporte.' },
     ],
     companiesGT: [
       'Tigo Guatemala', 'Claro Guatemala', 'Telefónica Movistar',
@@ -222,6 +287,22 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Tercer año: 5G, cloud, ciberseguridad de redes',
       'Cuarto año: Práctica en operadoras y tesis',
     ],
+    roadmap: {
+      overview: 'La Ingeniería en Telecomunicaciones diseña y opera la infraestructura que hace posible internet, el 5G y las comunicaciones globales. Con la expansión de 5G, satélites LEO (Starlink) y cloud computing, esta carrera está viviendo su momento de mayor auge. Guatemala es hub de tráfico de datos para toda Centroamérica.',
+      demandLevel: 'Alta',
+      demandNote: 'El despliegue 5G en Centroamérica iniciará 2025-2027. Las operadoras Tigo y Claro ya buscan ingenieros para este proceso. Además, la ciberseguridad de redes tiene déficit global de +3.5 millones de especialistas.',
+      skills: ['Routing y switching (BGP, OSPF, MPLS)', 'Redes wireless (WiFi 6, 5G NR)', 'Ciberseguridad de redes (firewalls, VPN)', 'Cloud networking (AWS, Azure)', 'Fibra óptica y telecomunicaciones ópticas', 'Protocolos TCP/IP avanzados', 'SDN y virtualización de redes (NFV)', 'Telefonía IP (VoIP, SIP)'],
+      technologies: ['Cisco IOS / NX-OS', 'Wireshark / Packet Tracer', 'Juniper Junos', 'GNS3 / EVE-NG', 'Ansible (automatización de redes)', 'MATLAB (procesamiento de señales)', 'FortiGate / Palo Alto (firewall)', 'AWS VPC / Azure Networking'],
+      certifications: ['CCNA (Cisco Certified Network Associate)', 'CCNP (Cisco Network Professional)', 'CCIE (el título más valorado en redes)', 'CompTIA Network+ / Security+', 'AWS Advanced Networking Specialty'],
+      areas: [
+        { name: 'Ingeniería de Redes', icon: 'ri-router-line', desc: 'Diseñas y operas redes empresariales y de operadoras. El trabajo más clásico y con mayor estabilidad en telecomunicaciones.' },
+        { name: 'Ciberseguridad', icon: 'ri-shield-line', desc: 'Proteges infraestructura crítica. Con la certificación CCIE Security, estás entre los mejor pagados del sector tecnológico.' },
+        { name: 'Cloud & Data Centers', icon: 'ri-server-line', desc: 'Arquitectura de redes para nubes híbridas y centros de datos. Las empresas invierten billones en esto cada año.' },
+        { name: '5G & Wireless', icon: 'ri-signal-tower-line', desc: 'El despliegue 5G es la mayor inversión en telecomunicaciones de la historia. Oportunidad única para entrar al inicio.' },
+        { name: 'Satélites & Espacio', icon: 'ri-satellite-line', desc: 'Starlink y otros LEO cambian la conectividad global. Proyectos de alta tecnología con salarios internacionales.' },
+        { name: 'Consultoría Tecnológica', icon: 'ri-building-4-line', desc: 'Asesoras empresas en diseño de red, seguridad y migración a la nube. Honorarios premium y flexibilidad total.' },
+      ],
+    },
   },
 
   industrial: {
@@ -237,12 +318,12 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Liderar equipos de operaciones en plantas manufactureras',
     ],
     specializations: [
-      { title: 'Lean Manufacturing & Six Sigma', desc: 'Elimina desperdicios y reduce defectos al mínimo. Certificación internacional en producción de clase mundial.' },
-      { title: 'Logística & Supply Chain Global', desc: 'Mueve productos desde China hasta tu casa. Gestiona inventarios, transporte y distribución a escala planetaria.' },
-      { title: 'Calidad & Mejora Continua', desc: 'Asegura que cada producto que sale de una fábrica sea perfecto. Auditorías, certificaciones ISO y control estadístico.' },
-      { title: 'Gestión de Operaciones', desc: 'Dirige plantas de producción, plantea estrategias de crecimiento y optimiza recursos humanos y materiales.' },
-      { title: 'Ingeniería Económica & Financiera', desc: 'Evalúa inversiones millonarias. ¿Vale la pena abrir una nueva fábrica? Tú tienes la respuesta con números.' },
-      { title: 'Ergonomía & Seguridad Industrial', desc: 'Diseña espacios de trabajo seguros y eficientes donde la gente no se lesiona y produce al máximo.' },
+      { title: 'Lean Manufacturing & Six Sigma', desc: 'Eliminas desperdicios y reduces defectos al mínimo usando herramientas DMAIC, Kaizen, 5S y Value Stream Mapping. La certificación Green/Black Belt Six Sigma dobla tu salario en industria.' },
+      { title: 'Logística & Supply Chain Global', desc: 'Gestionas el flujo de materiales desde el proveedor en China hasta el cliente en Guatemala. Inventarios, transporte multimodal, almacenamiento y distribución. SAP SCM y Oracle son tus herramientas.' },
+      { title: 'Calidad & Mejora Continua', desc: 'Control estadístico de procesos (SPC), auditorías ISO 9001, IATF 16949 (automotriz) y gestión de no-conformidades. Cada producto que sale perfecto de una fábrica pasa por un control de calidad que tú diseñaste.' },
+      { title: 'Gestión de Operaciones', desc: 'Diriges plantas de producción: planificación, scheduling, KPIs de desempeño y gestión de equipos multidisciplinarios. Eres el puente entre la estrategia empresarial y el piso de producción.' },
+      { title: 'Ingeniería Económica & Financiera', desc: 'Evalúas inversiones millonarias con TIR, VPN y análisis de riesgo. ¿Conviene abrir una nueva línea de producción? ¿Comprar o alquilar maquinaria? Tú tienes la respuesta con números.' },
+      { title: 'Ergonomía & Seguridad Industrial', desc: 'Diseñas espacios de trabajo donde nadie se lesiona y la productividad es máxima. Certificaciones OSHA e ISO 45001. La seguridad industrial es obligatoria por ley y siempre tendrá demanda.' },
     ],
     companiesGT: [
       'Cervecería Centroamericana', 'Tecnoquímicas (TQ)', 'Molinos Modernos',
@@ -274,6 +355,22 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Tercer año: Lean Six Sigma, gestión de proyectos y simulación',
       'Cuarto año: Práctica en planta real y tesis de mejora industrial',
     ],
+    roadmap: {
+      overview: 'La Ingeniería Industrial optimiza sistemas complejos: fábricas, logística, cadenas de suministro y operaciones empresariales. Es la carrera más versátil: puedes trabajar en manufactura, retail, consultoría, logística o finanzas. Guatemala es destino de nearshoring manufacturero, lo que genera alta demanda local.',
+      demandLevel: 'Alta',
+      demandNote: 'El nearshoring trae fábricas internacionales a Guatemala. CMI, Cementos Progreso y maquiladoras exportadoras contratan ingenieros industriales constantemente. Además, Amazon y Walmart operan centros logísticos que necesitan este perfil.',
+      skills: ['Estadística aplicada y control de calidad (SPC)', 'Lean Manufacturing y Six Sigma', 'Gestión de cadena de suministro', 'Modelado y simulación de sistemas', 'Gestión de proyectos (PMI)', 'Análisis financiero e ingeniería económica', 'Diseño de instalaciones y ergonomía', 'Indicadores de gestión (KPIs, OEE, OTIF)'],
+      technologies: ['SAP ERP / Oracle', 'AutoCAD (layouts de planta)', 'Arena / FlexSim (simulación)', 'Minitab (estadística industrial)', 'MS Project / Primavera P6', 'Power BI (dashboards)', 'SolidWorks (diseño de herramientas)', 'Excel avanzado (solver, tablas dinámicas)'],
+      certifications: ['Lean Six Sigma Green Belt / Black Belt', 'PMP — Project Management Professional', 'APICS CPIM (Supply Chain)', 'ISO 9001 Lead Auditor', 'OSHA 30 (Seguridad industrial)'],
+      areas: [
+        { name: 'Manufactura & Producción', icon: 'ri-building-2-line', desc: 'Diriges operaciones en plantas de alimentos, bebidas, cemento, textiles. La base del empleo industrial en Guatemala.' },
+        { name: 'Logística & Supply Chain', icon: 'ri-truck-line', desc: 'Gestionas el flujo de productos desde proveedores hasta clientes. Amazon y DHL son los empleadores globales más grandes.' },
+        { name: 'Calidad & Procesos', icon: 'ri-checkbox-circle-line', desc: 'Aseguras que los productos cumplan estándares mundiales. Certificaciones ISO abren puertas en cualquier industria.' },
+        { name: 'Consultoría Industrial', icon: 'ri-presentation-line', desc: 'Asesoras empresas para mejorar eficiencia y reducir costos. Alta remuneración y variedad de proyectos.' },
+        { name: 'Gestión de Proyectos', icon: 'ri-calendar-check-line', desc: 'Lideras proyectos de inversión, expansión y transformación. Con PMP, trabajas en cualquier país del mundo.' },
+        { name: 'Emprendimiento Industrial', icon: 'ri-rocket-line', desc: 'Creas tu propia empresa de manufactura, distribución o consultoría. El perfil más completo para ser empresario.' },
+      ],
+    },
   },
 
   administrativa: {
@@ -289,12 +386,12 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Gestionar proyectos desde la idea hasta la ejecución',
     ],
     specializations: [
-      { title: 'Emprendimiento & Startups', desc: 'Crea tu propia empresa tecnológica. Aprendes de idea, pitch, inversión y escalamiento.' },
-      { title: 'Gestión de Proyectos (PMI)', desc: 'Certificación internacional PMP. Lidera proyectos de millones de dólares en tiempo y presupuesto.' },
-      { title: 'Finanzas Corporativas & Inversión', desc: 'Evalúa fusiones, adquisiciones y valoración de empresas. Wall Street en Guatemala.' },
-      { title: 'Transformación Digital', desc: 'Lleva empresas tradicionales al siglo XXI con tecnología, automatización y nuevos modelos de negocio.' },
-      { title: 'Marketing Digital & Growth', desc: 'Escala productos usando SEO, redes sociales, automatización y growth hacking.' },
-      { title: 'Recursos Humanos & Cultura Organizacional', desc: 'Diseña equipos de alto rendimiento y culturas empresariales como las de Google.' },
+      { title: 'Emprendimiento & Startups', desc: 'Desde la idea hasta el pitch con inversores. Aprendes metodologías Lean Startup, Design Thinking y Business Model Canvas. Galileo tiene incubadora propia con acceso a capital semilla y mentores de Silicon Valley.' },
+      { title: 'Gestión de Proyectos (PMI)', desc: 'La certificación PMP es reconocida en 200 países y otorga un aumento salarial promedio del 25%. Aprendes a gestionar presupuestos, cronogramas, riesgos y equipos en proyectos de cualquier tamaño.' },
+      { title: 'Finanzas Corporativas & Inversión', desc: 'Valoras empresas, analizas fusiones y adquisiciones, y evalúas portafolios de inversión. El mundo financiero (banca, bolsa, fondos de inversión) paga los salarios más altos para quienes dominan esto.' },
+      { title: 'Transformación Digital', desc: 'Llevas empresas tradicionales al siglo XXI. ERP, CRM, automatización de procesos e inteligencia de negocios. El 78% de las empresas guatemaltecas necesita este proceso urgentemente.' },
+      { title: 'Marketing Digital & Growth', desc: 'SEO, SEM, redes sociales, email marketing, automatización y growth hacking. Las empresas que crecen en internet necesitan profesionales que dominen cada canal digital y los datos detrás de ellos.' },
+      { title: 'Recursos Humanos & Cultura Organizacional', desc: 'Diseñas equipos de alto rendimiento, culturas de innovación y programas de talento. Las empresas como Google invierten millones en esto porque saben que el talento humano es su activo más valioso.' },
     ],
     companiesGT: [
       'Banco Industrial', 'Banguat', 'G&T Continental', 'BAC',
@@ -326,6 +423,22 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Tercer año: Proyectos, emprendimiento y transformación digital',
       'Cuarto año: Práctica en empresa y tesis con modelo de negocio real',
     ],
+    roadmap: {
+      overview: 'La Ingeniería Administrativa combina lo mejor de la ingeniería (análisis, sistemas, datos) con la gestión empresarial (estrategia, finanzas, liderazgo). Es la carrera para quien quiere ser CEO, emprendedor o consultor de alto nivel. En un mundo donde la tecnología y los negocios son inseparables, este perfil híbrido es el más demandado.',
+      demandLevel: 'Muy Alta',
+      demandNote: 'La transformación digital obliga a todas las empresas a contratar perfiles que entiendan tanto tecnología como negocios. Consultoras como McKinsey y Deloitte buscan activamente ingenieros administrativos guatemaltecos.',
+      skills: ['Análisis financiero y contabilidad', 'Gestión de proyectos (PMI/Agile)', 'Estrategia empresarial y modelos de negocio', 'Marketing digital y analítica web', 'Liderazgo y gestión de equipos', 'Business Intelligence y dashboards', 'Negociación y ventas consultivas', 'Transformación digital y ERP'],
+      technologies: ['Power BI / Tableau (analytics)', 'SAP ERP / Salesforce CRM', 'HubSpot (marketing automation)', 'Excel avanzado / Google Sheets', 'MS Project / Asana / Jira', 'Google Analytics / Meta Ads', 'Slack / Notion (gestión de equipos)', 'QuickBooks / ContaPlus'],
+      certifications: ['PMP — Project Management Professional', 'Google Digital Marketing Certificate', 'HubSpot Inbound Marketing', 'Scrum Master (PSM I)', 'CFA Level 1 (finanzas)'],
+      areas: [
+        { name: 'Emprendimiento', icon: 'ri-rocket-line', desc: 'Fundas tu propia empresa con metodología probada. Galileo tiene incubadora con acceso a inversores y mentores reales.' },
+        { name: 'Consultoría Estratégica', icon: 'ri-presentation-line', desc: 'McKinsey, BCG, Deloitte. Los consultores mejor pagados del mundo resuelven los problemas más complejos de las empresas.' },
+        { name: 'Gestión de Proyectos', icon: 'ri-calendar-2-line', desc: 'Con PMP, diriges proyectos millonarios en cualquier industria y país. Una de las certificaciones más valiosas del mercado.' },
+        { name: 'Finanzas & Banca', icon: 'ri-bank-line', desc: 'Bancos, fondos de inversión y mercados de capitales. Análisis financiero y toma de decisiones de alto impacto.' },
+        { name: 'Transformación Digital', icon: 'ri-global-line', desc: 'Llevas empresas al siglo XXI. Toda empresa en Guatemala necesita este proceso y pocos profesionales saben hacerlo.' },
+        { name: 'Marketing & Growth', icon: 'ri-line-chart-line', desc: 'Escala empresas en internet. El growth hacking y marketing de datos son las habilidades más buscadas en startups.' },
+      ],
+    },
   },
 
   energeticos: {
@@ -341,12 +454,12 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Consultar a gobiernos y empresas sobre sostenibilidad',
     ],
     specializations: [
-      { title: 'Energía Solar Fotovoltaica', desc: 'Diseña parques solares desde el panel hasta la conexión a red. La energía más barata del mundo.' },
-      { title: 'Energía Eólica', desc: 'Turbinas gigantes que generan electricidad limpia. Onshore, offshore y microeólica.' },
-      { title: 'Biocombustibles & Biomasa', desc: 'Convierte residuos orgánicos en energía. La solución para ciudades sostenibles.' },
-      { title: 'Smart Grids & Almacenamiento', desc: 'Redes eléctricas inteligentes con baterías de última generación. Tesla Powerwall a escala país.' },
-      { title: 'Eficiencia Energética', desc: 'Reduce el consumo de edificios y fábricas en 50%. Certificaciones LEED y EDGE.' },
-      { title: 'Hidroenergía & Geotermia', desc: 'Aprovecha ríos, lagos y el calor de la tierra para generar electricidad limpia 24/7.' },
+      { title: 'Energía Solar Fotovoltaica', desc: 'Diseñas sistemas solares desde el panel hasta la conexión a red: dimensionamiento, inversores, baterías y monitoreo. La energía solar es ya la más barata de la historia. Guatemala tiene radiación solar ideal todo el año.' },
+      { title: 'Energía Eólica', desc: 'Turbinas de viento en tierra (onshore), mar (offshore) y sistemas de microeólica para zonas rurales. Diseño aerodinámico, torres, generadores y conexión a red. Vestas y Siemens Gamesa lideran un mercado de $100 billones.' },
+      { title: 'Biocombustibles & Biomasa', desc: 'Conviertes residuos agrícolas (caña, palma, maíz) en energía. Guatemala exporta bioetanol y biodiesel. Diseñas plantas de cogeneración que producen electricidad y calor simultáneamente.' },
+      { title: 'Smart Grids & Almacenamiento', desc: 'Redes eléctricas inteligentes con sensores IoT, gestión automática y baterías de gran escala. Tesla Megapack, BESS (Battery Energy Storage Systems) y microrredes para comunidades rurales.' },
+      { title: 'Eficiencia Energética', desc: 'Auditas edificios, fábricas y ciudades para reducir consumo energético en 30-60%. Certificaciones LEED y EDGE. Las empresas pagan bien por ahorrar en su factura eléctrica. Retorno de inversión inmediato.' },
+      { title: 'Hidroenergía & Geotermia', desc: 'Guatemala tiene 25 volcanes activos y docenas de ríos. Diseñas plantas hidroeléctricas de pasada, geotérmicas y pequeñas centrales que generan electricidad limpia 24/7 sin depender del sol ni el viento.' },
     ],
     companiesGT: [
       'EEGSA (Empresa Eléctrica)', 'DEORSA', 'DEOCSA',
@@ -380,6 +493,22 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Tercer año: Smart grids, almacenamiento y proyectos',
       'Cuarto año: Práctica en parque solar/hidroeléctrica y tesis',
     ],
+    roadmap: {
+      overview: 'La Ingeniería en Sistemas Energéticos diseña el futuro de la energía: solar, eólica, hidroeléctrica, geotérmica y redes inteligentes. Con el cambio climático como prioridad global, los gobiernos y empresas invierten billones en transición energética. Guatemala, con su potencial renovable único, es el laboratorio perfecto para esta carrera.',
+      demandLevel: 'Muy Alta',
+      demandNote: 'Los Acuerdos de París obligan a todos los países a descarbonizarse. Guatemala necesita +500 MW de energía renovable en los próximos 5 años. La Unión Europea ofrece financiamiento para proyectos verdes en Centroamérica, generando miles de empleos.',
+      skills: ['Termodinámica y transferencia de calor', 'Diseño de sistemas fotovoltaicos (FV)', 'Redes eléctricas y sistemas de potencia', 'Gestión de proyectos de energía', 'Software de simulación energética', 'Análisis de viabilidad económica (LCOE)', 'Normas eléctricas NEC y NFPA', 'Sostenibilidad y huella de carbono'],
+      technologies: ['PVsyst (diseño solar)', 'ETAP / PowerWorld (redes eléctricas)', 'HOMER Pro (microrredes)', 'AutoCAD / Civil 3D', 'SAP PM (mantenimiento plantas)', 'MATLAB / Simulink (modelado)', 'RETScreen (viabilidad proyectos)', 'SCADA (supervisión de plantas)'],
+      certifications: ['LEED Green Associate / AP', 'EDGE Auditor (eficiencia energética)', 'Certified Energy Auditor (CEA)', 'SMA Solar Academy Certified', 'NABCEP (instalaciones solares)'],
+      areas: [
+        { name: 'Energía Solar', icon: 'ri-sun-line', desc: 'Diseñas y gestionas parques solares. La energía más barata del mundo y de mayor crecimiento. Guatemala tiene radiación solar óptima todo el año.' },
+        { name: 'Energía Eólica', icon: 'ri-windy-line', desc: 'Turbinas de viento en tierra y mar. Vestas y Siemens Gamesa lideran un mercado de $100 billones anuales.' },
+        { name: 'Smart Grids', icon: 'ri-flashlight-line', desc: 'Redes eléctricas inteligentes con IoT y almacenamiento. La modernización de la red eléctrica de Guatemala es urgente.' },
+        { name: 'Consultoría Ambiental', icon: 'ri-leaf-line', desc: 'Asesoras empresas en reducción de huella carbono, certificaciones LEED y cumplimiento de normativa ambiental.' },
+        { name: 'Hidroenergía & Geotermia', icon: 'ri-drop-line', desc: 'Guatemala tiene 25 volcanes y docenas de ríos. Energía limpia 24/7 sin depender del clima.' },
+        { name: 'Investigación Energética', icon: 'ri-microscope-line', desc: 'Trabajo en centros de investigación, universidades y organismos internacionales (IRENA, BID, Banco Mundial).' },
+      ],
+    },
   },
 
   quimica: {
@@ -395,12 +524,12 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Optimizar procesos químicos para reducir costos y residuos',
     ],
     specializations: [
-      { title: 'Farmacéutica & Biotecnología', desc: 'Desarrolla medicamentos, vacunas y terapias biológicas. Salvas vidas en laboratorio.' },
-      { title: 'Alimentos & Bebidas', desc: 'Crea nuevos sabores, conserva alimentos y diseña plantas de producción alimentaria.' },
-      { title: 'Petroquímica & Materiales', desc: 'Plásticos, polímeros y materiales avanzados. Desde botellas hasta componentes de aviones.' },
-      { title: 'Nanotecnología & Materiales Avanzados', desc: 'Materiales a escala atómica. La próxima revolución industrial.' },
-      { title: 'Ambiental & Tratamiento de Agua', desc: 'Purifica agua, trata residuos y diseña procesos limpios para la industria.' },
-      { title: 'Cosmética & Cuidado Personal', desc: 'Formulación de productos de belleza y cuidado. Una industria multimillonaria.' },
+      { title: 'Farmacéutica & Biotecnología', desc: 'Desarrollas medicamentos, vacunas y terapias biológicas. Desde el diseño molecular hasta los ensayos clínicos y la producción a escala industrial. Pfizer, Roche y Bayer son los empleadores con los sueldos más altos en ingeniería química.' },
+      { title: 'Alimentos & Bebidas', desc: 'Formulas nuevos sabores, conservas alimentos y diseñas plantas de producción. Guatemala exporta alimentos a 50 países: Pollo Campero, Cervecería Centroamericana y empresas agroindustriales necesitan este perfil constantemente.' },
+      { title: 'Petroquímica & Materiales', desc: 'Polímeros, plásticos de alta performance y materiales compuestos para aeronáutica, autos y electrónica. La industria petroquímica es la más grande del mundo y siempre necesita ingenieros con dominio de procesos.' },
+      { title: 'Nanotecnología & Materiales Avanzados', desc: 'Materiales a escala atómica con propiedades extraordinarias: grafeno, nanotubos de carbono, nanopartículas médicas. La siguiente revolución industrial está en lo pequeñísimo.' },
+      { title: 'Ambiental & Tratamiento de Agua', desc: 'Purificación de agua potable, tratamiento de aguas residuales industriales y diseño de procesos cero-residuos. El acceso a agua limpia es el mayor reto ambiental del siglo. Organismos como el BID financian proyectos.' },
+      { title: 'Cosmética & Cuidado Personal', desc: 'Formulación de cremas, shampoos, perfumes y productos de belleza. L\'Oréal, P&G y Unilever tienen los laboratorios de I+D más avanzados para ingenieros químicos. Industria de $500 billones anuales.' },
     ],
     companiesGT: [
       'Tecnoquímicas (TQ)', 'Genfar Guatemala', 'Farmacéuticas locales',
@@ -433,6 +562,22 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Cuarto año: Especialización y proyectos industriales',
       'Quinto año: Práctica en planta y tesis de grado',
     ],
+    roadmap: {
+      overview: 'La Ingeniería Química transforma materia prima en los productos que la sociedad necesita: medicamentos, alimentos, combustibles, materiales y químicos industriales. Es la carrera con mayor versatilidad sectorial: puedes trabajar en farmacéutica, alimentaria, petroquímica, ambiental o cosmética. Cada producto manufacturado del mundo tiene un ingeniero químico detrás.',
+      demandLevel: 'Alta',
+      demandNote: 'La industria alimentaria y farmacéutica en Guatemala crece 8% anual. Cervecería Centroamericana, TQ y Coca-Cola FEMSA tienen contratación permanente. Internacionalmente, BASF, Pfizer y P&G buscan ingenieros químicos en Latinoamérica.',
+      skills: ['Termodinámica y balances de energía/masa', 'Diseño y operación de reactores', 'Transferencia de calor y masa', 'Control de procesos industriales', 'Química analítica e instrumental', 'Seguridad química (HAZMAT, MSDS)', 'Diseño de experimentos (DOE)', 'Buenas Prácticas de Manufactura (BPM/GMP)'],
+      technologies: ['Aspen Plus / HYSYS (simulación)', 'ChemDraw / Scifinder (investigación)', 'AutoCAD (diseño de plantas)', 'LIMS (gestión de laboratorio)', 'Minitab (control estadístico)', 'MATLAB (modelado de procesos)', 'SAP PP/QM (producción y calidad)', 'GC-MS / HPLC (análisis instrumental)'],
+      certifications: ['ISO 9001 — Sistemas de Gestión de Calidad', 'HACCP (inocuidad alimentaria)', 'GMP — Good Manufacturing Practices', 'ISO 14001 (Gestión Ambiental)', 'Six Sigma Green Belt (procesos)'],
+      areas: [
+        { name: 'Industria Farmacéutica', icon: 'ri-capsule-line', desc: 'Desarrollas y produces medicamentos. Los salarios más altos en química. Pfizer, Roche y Bayer son los grandes empleadores.' },
+        { name: 'Alimentos & Agroindustria', desc: 'Formulas nuevos productos alimenticios y garantizas su seguridad. Guatemala exporta alimentos a 50 países.', icon: 'ri-restaurant-line' },
+        { name: 'Petroquímica & Polímeros', icon: 'ri-oil-line', desc: 'Materiales plásticos, cauchos y polímeros para todo tipo de industria. Shell y ExxonMobil son referentes mundiales.' },
+        { name: 'Gestión Ambiental', icon: 'ri-plant-line', desc: 'Tratamiento de residuos y agua. Cumplimiento de normativa ambiental. Proyectos financiados por BID y Banco Mundial.' },
+        { name: 'I+D & Biotecnología', icon: 'ri-test-tube-line', desc: 'Investigación de nuevos materiales, nanomateriales y biotecnología. El área de mayor innovación y publicaciones.' },
+        { name: 'Cosmética & Cuidado Personal', icon: 'ri-star-smile-line', desc: 'Formulación de productos de belleza. L\'Oréal y P&G tienen los labs de I+D más avanzados del mundo.' },
+      ],
+    },
   },
 
   construccion: {
@@ -448,12 +593,12 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Coordinar arquitectos, ingenieros, proveedores y gobierno',
     ],
     specializations: [
-      { title: 'Estructuras & Diseño Sísmico', desc: 'Edificios que resisten terremotos. Guatemala está en zona sísmica: esta especialización salva vidas.' },
-      { title: 'Gestión de Obras & Project Management', desc: 'Dirige megaproyectos: presupuestos, cronogramas, contratos y equipos de construcción.' },
-      { title: 'Infraestructura Vial & Transporte', desc: 'Carreteras, puentes, túneles y sistemas de transporte que conectan un país.' },
-      { title: 'Construcción Sostenible (Green Building)', desc: 'Edificios que generan su propia energía, reciclan agua y reducen huella de carbono. LEED certificados.' },
-      { title: 'BIM & Digital Construction', desc: 'Construye primero en computadora. Modelos 3D con realidad virtual antes de poner el primer ladrillo.' },
-      { title: 'Geotecnia & Cimentaciones', desc: 'La base de todo edificio. Suelos, rocas y cimentaciones para rascacielos y puentes.' },
+      { title: 'Estructuras & Diseño Sísmico', desc: 'Calculas edificios para que soporten terremotos, vientos y cargas extremas. Guatemala tiene alta actividad sísmica: esta especialización no solo es técnica, salva vidas. Software ETABS, SAP2000 y Revit Structure.' },
+      { title: 'Gestión de Obras & Project Management', desc: 'Diriges proyectos de construcción de millones de quetzales. Presupuestos, cronogramas con Primavera P6, gestión de contratos y resolución de conflictos. Con certificación PMP, trabajas en proyectos internacionales.' },
+      { title: 'Infraestructura Vial & Transporte', desc: 'Carreteras, puentes, túneles y sistemas ferroviarios. El gobierno de Guatemala invierte $800M anuales en infraestructura. Diseñas los proyectos que conectan al país y reducen tiempos de viaje.' },
+      { title: 'Construcción Sostenible (Green Building)', desc: 'Edificios LEED y EDGE que generan su propia energía, reciclan agua y reducen huella de carbono. El mercado de construcción sostenible crece 10% anual. Las empresas internacionales solo construyen certificado.' },
+      { title: 'BIM & Digital Construction', desc: 'Revit, Tekla y Navisworks para modelar edificios en 3D antes de construirlos. Detección de colisiones, coordinación multidisciplinaria y realidad virtual para validar diseños. El estándar en proyectos internacionales.' },
+      { title: 'Geotecnia & Cimentaciones', desc: 'Estudias el suelo, rocas y agua subterránea para diseñar las cimentaciones de cualquier estructura. Sin una buena cimentación, no hay edificio que aguante. Alta especialización = alta remuneración.' },
     ],
     companiesGT: [
       'Cementos Progreso', 'Grupo DCA', 'Constructores locales (obras residenciales)',
@@ -486,10 +631,25 @@ export const CAREER_DETAILS: Record<string, CareerDetail> = {
       'Cuarto año: Especialización y proyectos reales',
       'Quinto año: Práctica en obra y tesis',
     ],
+    roadmap: {
+      overview: 'La Ingeniería de la Construcción diseña, calcula y gestiona todo lo que se construye: edificios, puentes, carreteras, hospitales y aeropuertos. Guatemala tiene un déficit habitacional de 1.5 millones de viviendas y un ambicioso plan de infraestructura gubernamental. Internacionalmente, proyectos en Medio Oriente, EE.UU. y Europa pagan los salarios más altos de la industria.',
+      demandLevel: 'Alta',
+      demandNote: 'Guatemala necesita +5,000 ingenieros de construcción en los próximos 8 años para cumplir la agenda de infraestructura del MINGOB y el BID. Proyectos de carreteras, hospitales y vivienda popular generan empleo constante.',
+      skills: ['Análisis estructural (ETABS, SAP2000)', 'Gestión de proyectos (Primavera P6)', 'Modelado BIM (Revit, Tekla)', 'Mecánica de suelos y cimentaciones', 'Presupuesto y control de costos', 'Normativa sismorresistente (ACI, AISC)', 'Administración de contratos (FIDIC)', 'Topografía y levantamientos'],
+      technologies: ['Autodesk Revit (BIM)', 'SAP2000 / ETABS (estructuras)', 'AutoCAD / Civil 3D (diseño)', 'Primavera P6 / MS Project', 'Navisworks (coordinación BIM)', 'SketchUp (modelado 3D)', 'GIS (topografía y planeación)', 'Drone Photogrammetry (levantamientos)'],
+      certifications: ['PMP — Project Management Professional', 'LEED Green Associate / BD+C', 'BIM Level 2 Certified (Autodesk)', 'OSHA 30-Hour Construction', 'ACI Field Testing Technician'],
+      areas: [
+        { name: 'Ingeniería Estructural', icon: 'ri-building-4-line', desc: 'Calculas edificios, puentes y estructuras que resisten terremotos y cargas extremas. Alta especialización = altos honorarios.' },
+        { name: 'Gestión de Proyectos', icon: 'ri-calendar-check-line', desc: 'Diriges obras millonarias. Con PMP y experiencia internacional, puedes trabajar en proyectos en EE.UU., Europa o Medio Oriente.' },
+        { name: 'Infraestructura Vial', icon: 'ri-road-map-line', desc: 'Carreteras, autopistas y puentes. El gobierno guatemalteco y organismos como BID financian proyectos de $100M-$500M.' },
+        { name: 'Construcción Verde', icon: 'ri-plant-line', desc: 'Edificios LEED certificados. Las empresas internacionales solo construyen sostenible. Alta demanda y proyectos premium.' },
+        { name: 'BIM & Tecnología', icon: 'ri-computer-line', desc: 'Revit, Tekla y realidad virtual aplicada a construcción. El perfil más buscado en constructoras internacionales.' },
+        { name: 'Consultoría & Peritaje', icon: 'ri-search-eye-line', desc: 'Asesoría en diseño, supervisión técnica y peritaje de obras. Trabajo independiente con honorarios muy atractivos.' },
+      ],
+    },
   },
 };
 
-// Fallback detail if career not found
 export const DEFAULT_CAREER_DETAIL: CareerDetail = {
   id: 'default',
   shortName: 'Ingeniería',
@@ -503,8 +663,8 @@ export const DEFAULT_CAREER_DETAIL: CareerDetail = {
     'Seguir aprendiendo toda la vida',
   ],
   specializations: [
-    { title: 'Especialización 1', desc: 'Descripción pendiente' },
-    { title: 'Especialización 2', desc: 'Descripción pendiente' },
+    { title: 'Especialización técnica', desc: 'Profundiza en el área técnica de tu carrera con proyectos reales y docentes de industria.' },
+    { title: 'Aplicación industrial', desc: 'Prácticas en empresas y laboratorios de última generación.' },
   ],
   companiesGT: ['Empresas guatemaltecas líderes'],
   companiesAbroad: ['Empresas internacionales'],
@@ -519,6 +679,20 @@ export const DEFAULT_CAREER_DETAIL: CareerDetail = {
     'Tercer año: Proyectos avanzados',
     'Cuarto año: Práctica profesional',
   ],
+  roadmap: {
+    overview: 'Las ingenierías de Galileo forman profesionales con visión global y habilidades técnicas de clase mundial. Con alianzas con MIT, laboratorios de última generación y docentes de industria, estás preparado para trabajar en Guatemala y el mundo desde el día que te gradúas.',
+    demandLevel: 'Alta',
+    demandNote: 'El mercado guatemalteco y regional tiene alta demanda de ingenieros con formación tecnológica sólida.',
+    skills: ['Pensamiento analítico', 'Resolución de problemas complejos', 'Trabajo en equipo', 'Uso de herramientas tecnológicas', 'Gestión de proyectos', 'Comunicación técnica'],
+    technologies: ['Software especializado de la carrera', 'Microsoft Office avanzado', 'Herramientas de diseño y simulación', 'Plataformas cloud'],
+    certifications: ['Certificaciones internacionales de la especialidad', 'Project Management (PMP)', 'Certificaciones de software'],
+    areas: [
+      { name: 'Industria', icon: 'ri-building-2-line', desc: 'Empresas manufactureras, energéticas y de servicios que buscan ingenieros constantemente.' },
+      { name: 'Tecnología', icon: 'ri-computer-line', desc: 'Startups y empresas tech en Guatemala y trabajo remoto para empresas internacionales.' },
+      { name: 'Consultoría', icon: 'ri-presentation-line', desc: 'Asesoría a empresas en proyectos de mejora, implementación tecnológica y optimización.' },
+      { name: 'Emprendimiento', icon: 'ri-rocket-line', desc: 'Galileo cuenta con incubadora propia y acceso a inversores para estudiantes y egresados.' },
+    ],
+  },
 };
 
 export function getCareerDetail(careerId: string): CareerDetail {
