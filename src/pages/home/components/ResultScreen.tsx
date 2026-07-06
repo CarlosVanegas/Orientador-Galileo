@@ -151,7 +151,7 @@ function SpecializationCard({ spec, index }: { spec: CareerDetail['specializatio
             <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.25 }} className="overflow-hidden">
               <div className="mt-2 pt-2" style={{ borderTop: `1px solid ${c}22` }} />
-              <p className="text-[11px] sm:text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>{spec.desc}</p>
+              <p className="text-xs sm:text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>{spec.desc}</p>
             </motion.div>
           )}
         </AnimatePresence>
@@ -282,9 +282,9 @@ function RoadmapSection({ roadmap }: { roadmap: CareerRoadmap }) {
       <div className="mb-4 p-3 sm:p-4 rounded-xl" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="flex items-center gap-2 mb-2 flex-wrap">
           <DemandBadge level={roadmap.demandLevel} />
-          <span className="text-[11px] sm:text-xs" style={{ color: 'rgba(255,255,255,0.55)' }}>{roadmap.demandNote}</span>
+          <span className="text-xs sm:text-sm" style={{ color: 'rgba(255,255,255,0.55)' }}>{roadmap.demandNote}</span>
         </div>
-        <p className="text-xs sm:text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>{roadmap.overview}</p>
+        <p className="text-sm sm:text-[15px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>{roadmap.overview}</p>
       </div>
 
       {/* Skills + Technologies grid */}
@@ -365,7 +365,7 @@ function RoadmapSection({ roadmap }: { roadmap: CareerRoadmap }) {
               </div>
               <div className="min-w-0">
                 <p className="text-white font-semibold text-[11px] sm:text-xs leading-tight mb-0.5">{area.name}</p>
-                <p className="text-[10px] sm:text-[11px] leading-snug" style={{ color: 'rgba(255,255,255,0.52)' }}>{area.desc}</p>
+                <p className="text-[11px] sm:text-xs leading-snug" style={{ color: 'rgba(255,255,255,0.52)' }}>{area.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -475,7 +475,7 @@ export default function ResultScreen({ onContinue }: ResultScreenProps) {
                 style={{ background: `${F}15`, border: `1px solid ${F}25` }}>
                 <i className="ri-robot-2-line text-xs" style={{ color: F }} />
               </div>
-              <p className="text-xs sm:text-sm leading-relaxed italic flex-1" style={{ color: 'rgba(255,255,255,0.72)' }}>
+              <p className="text-sm sm:text-base leading-relaxed italic flex-1" style={{ color: 'rgba(255,255,255,0.72)' }}>
                 {personalMsgDisplayed}
                 {!personalComplete && (
                   <span className="inline-block w-0.5 h-3 sm:h-4 ml-0.5 rounded-full animate-pulse" style={{ background: F }} />
@@ -512,7 +512,7 @@ export default function ResultScreen({ onContinue }: ResultScreenProps) {
                   {rec.primary.career}
                 </motion.h3>
 
-                <motion.p className="font-heading font-semibold text-sm sm:text-base md:text-lg italic mb-5"
+                <motion.p className="font-heading font-semibold text-base sm:text-lg md:text-xl italic mb-5"
                   style={{ color: T }}
                   initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}>
                   "{detail.tagline}"
@@ -572,7 +572,7 @@ export default function ResultScreen({ onContinue }: ResultScreenProps) {
                   Universidad Galileo
                 </span>
               </div>
-              <p className="text-xs sm:text-sm font-medium leading-relaxed max-w-lg mx-auto" style={{ color: 'rgba(255,255,255,0.7)' }}>
+              <p className="text-sm sm:text-base font-medium leading-relaxed max-w-lg mx-auto" style={{ color: 'rgba(255,255,255,0.7)' }}>
                 <strong className="font-bold" style={{ color: F }}>La universidad líder en tecnología de toda Centroamérica.</strong>{' '}
                 Formamos profesionales que trascienden con contenidos actualizados, equipos de alta tecnología y catedráticos comprometidos con tu éxito.
               </p>
@@ -600,7 +600,7 @@ export default function ResultScreen({ onContinue }: ResultScreenProps) {
                     style={{ background: `${F}14`, border: `1px solid ${F}22` }} whileHover={{ scale: 1.2 }}>
                     <i className="ri-check-line text-[10px] sm:text-xs" style={{ color: F }} />
                   </motion.div>
-                  <p className="text-xs sm:text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>{day}</p>
+                  <p className="text-sm sm:text-[15px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>{day}</p>
                 </motion.div>
               ))}
             </div>
@@ -630,7 +630,7 @@ export default function ResultScreen({ onContinue }: ResultScreenProps) {
                       style={{ background: `${T}14`, border: `1px solid ${T}22` }}>
                       <i className="ri-flashlight-line text-[10px] sm:text-xs" style={{ color: T }} />
                     </div>
-                    <p className="text-[11px] sm:text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }}>{item}</p>
+                    <p className="text-xs sm:text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }}>{item}</p>
                   </div>
                 </motion.div>
               ))}
@@ -758,7 +758,7 @@ export default function ResultScreen({ onContinue }: ResultScreenProps) {
                     </motion.div>
                     <div className="pt-0.5">
                       <p className="text-[10px] sm:text-xs font-semibold" style={{ color: T }}>{year}</p>
-                      <p className="text-[11px] sm:text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>{desc}</p>
+                      <p className="text-xs sm:text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>{desc}</p>
                     </div>
                   </motion.div>
                 );
@@ -789,7 +789,7 @@ export default function ResultScreen({ onContinue }: ResultScreenProps) {
                     animate={{ rotate: [0, 12, -12, 0] }} transition={{ duration: 4, repeat: Infinity, repeatDelay: 2 }} />
                   <h4 className="text-white font-heading font-bold text-xs sm:text-sm">¿Sabías que...</h4>
                 </div>
-                <p className="text-[11px] sm:text-xs leading-relaxed flex-1" style={{ color: `${F}CC` }}>{detail.funFact}</p>
+                <p className="text-xs sm:text-sm leading-relaxed flex-1" style={{ color: `${F}CC` }}>{detail.funFact}</p>
                 <p className="text-[10px] sm:text-xs font-semibold mt-3" style={{ color: `${T}92` }}>{detail.salaryNote}</p>
               </div>
             </motion.div>
@@ -812,7 +812,7 @@ export default function ResultScreen({ onContinue }: ResultScreenProps) {
                   ¿Por qué Galileo? —{' '}
                   <span style={{ color: F }}>La ventaja que nadie más te da</span>
                 </h4>
-                <p className="text-[11px] sm:text-xs leading-relaxed" style={{ color: `${F}CC` }}>{detail.galileoEdge}</p>
+                <p className="text-xs sm:text-sm leading-relaxed" style={{ color: `${F}CC` }}>{detail.galileoEdge}</p>
               </div>
             </div>
           </div>
@@ -835,7 +835,7 @@ export default function ResultScreen({ onContinue }: ResultScreenProps) {
                   </span>
                 </div>
                 <h4 className="text-white font-heading font-bold text-sm sm:text-base mb-1.5 sm:mb-2">{rec.secondary.shortName}</h4>
-                <p className="text-xs sm:text-sm leading-relaxed mb-2 sm:mb-3" style={{ color: 'rgba(255,255,255,0.5)' }}>{rec.secondary.reason}</p>
+                <p className="text-sm sm:text-[15px] leading-relaxed mb-2 sm:mb-3" style={{ color: 'rgba(255,255,255,0.5)' }}>{rec.secondary.reason}</p>
                 <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {rec.secondary.jobs.slice(0, 3).map((job, i) => (
                     <span key={i} className="text-[10px] sm:text-[11px] px-2 sm:px-3 py-0.5 sm:py-1 rounded-full"
