@@ -25,7 +25,27 @@ Herramienta conversacional de orientación vocacional para estudiantes de primer
 
 ## La solución
 
-El problema central: un estudiante guatemalteco de 16–22 años no sabe qué ingeniería estudiar, se expresa con lenguaje coloquial ("quiero hacer cosas como Walter White", "poner ladrillos como mi papá"), y está a un clic de abandonar cualquier herramienta que no lo enganche en 30 segundos.
+### El problema
+
+Un estudiante guatemalteco de 16–22 años raramente llega con un discurso académico claro. Llega así:
+
+| Lo que dice el estudiante | Lo que realmente significa | Carrera que el sistema detecta |
+|---|---|---|
+| *"Quiero hacer cosas como Walter White"* | Fascinación genuina por la química y los procesos | Ingeniería Química |
+| *"Quiero poner ladrillos como mi papá, pero más"* | Orgullo familiar + aspiración de crecer en construcción | Ingeniería de la Construcción |
+| *"Me gustaría hackear cosas, pero legal"* | Interés real en ciberseguridad y redes | Ing. en Sistemas / Telecomunicaciones |
+| *"Quiero hacer una app como Zigi o TikTok"* | Quiere crear productos digitales que la gente use | Ingeniería en Sistemas |
+| *"Me llama la atención lo de los carros eléctricos de Tesla"* | Atracción por electrónica de potencia y automatización | Ing. en Mecatrónica / Electrónica |
+| *"Quiero que las cosas funcionen mejor en las fábricas"* | Perfil de optimización y procesos industriales | Ingeniería Industrial |
+| *"Me interesa lo de los paneles solares y eso"* | Conciencia ambiental + interés en energía renovable | Ing. en Sistemas Energéticos |
+| *"No sé, soy más de mis manitas"* | Trabajo físico y tangible, perfil práctico | Mecatrónica o Construcción |
+| *"Quiero ser gerente de IT de una empresa grande"* | Liderazgo tecnológico — no administración genérica | Ingeniería en Sistemas |
+
+Un chatbot basado en reglas o un quiz de opción múltiple colapsa ante cualquiera de estas respuestas. Un formulario las ignora. Una landing page con 9 carreras para leer exige que el estudiante haga solo el trabajo que no sabe hacer.
+
+El estudiante además **está a un clic de abandonar**: si la primera respuesta del bot suena a folleto, si le pregunta dos veces lo mismo, o si lo llama por un nombre incorrecto, cierra la pestaña en segundos.
+
+### La solución
 
 La solución implementa un patrón **RAG conversacional** (Retrieval-Augmented Generation):
 
